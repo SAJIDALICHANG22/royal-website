@@ -60,11 +60,11 @@ var WA_NUMBER = "923013516594"; // international format, no + or spaces
     });
   }
 
-  // gallery + lightbox (reads assets/gallery.json)
+  // gallery + lightbox (reads gallery.json)
   var gal = document.getElementById("gallery");
   if (gal) {
     var base = gal.getAttribute("data-base") || "";
-    fetch(base + "assets/gallery.json")
+    fetch(base + "gallery.json")
       .then(function (r) { return r.json(); })
       .then(function (items) {
         items.forEach(function (it) {

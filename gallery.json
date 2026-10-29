@@ -1,7 +1,7 @@
 [
-  {"src":"assets/images/underground-tank.jpg","caption":"Underground tank: scrubbing walls and floor"},
-  {"src":"assets/images/overhead-tank.jpg","caption":"Overhead tank: pressure washing"},
-  {"src":"assets/images/banner-before-after.jpg","caption":"Before and after"},
-  {"src":"assets/images/flyer-services.jpg","caption":"Our cleaning service"},
-  {"src":"assets/images/banner-services.jpg","caption":"Homes, commercial and industrial tanks"}
+  {"src":"underground-tank.jpg","caption":"Underground tank: scrubbing walls and floor"},
+  {"src":"overhead-tank.jpg","caption":"Overhead tank: pressure washing"},
+  {"src":"banner-before-after.jpg","caption":"Before and after"},
+  {"src":"flyer-services.jpg","caption":"Our cleaning service"},
+  {"src":"banner-services.jpg","caption":"Homes, commercial and industrial tanks"}
 ]

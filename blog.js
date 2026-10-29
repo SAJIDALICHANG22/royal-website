@@ -1,4 +1,4 @@
-/* Blog: reads blog/posts.json and blog/posts/<slug>.md  */
+/* Blog: reads posts.json and blog/posts/<slug>.md  */
 (function () {
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
   function fmtDate(d) {
@@ -50,7 +50,7 @@
       if (!posts.length) { listEl.innerHTML = "<p>No posts yet. Please check back soon.</p>"; return; }
       listEl.innerHTML = posts.map(function (p) {
         return '<a class="post-card reveal in" href="post.html?p=' + encodeURIComponent(p.slug) + '">' +
-          '<img loading="lazy" alt="' + esc(p.title) + '" src="../' + esc(p.image) + '">' +
+          '<img loading="lazy" alt="' + esc(p.title) + '" src="' + esc(p.image) + '">' +
           '<div class="body"><span class="meta">' + esc(fmtDate(p.date)) + "</span>" +
           "<h3>" + esc(p.title) + "</h3><p>" + esc(p.excerpt) + '</p><span class="more">Read article &rarr;</span></div></a>';
       }).join("");
@@ -61,19 +61,19 @@
   var postEl = document.getElementById("postBody");
   if (postEl) {
     var slug = new URLSearchParams(location.search).get("p");
-    if (!slug || !/^[a-z0-9-]+$/i.test(slug)) { postEl.innerHTML = "<p>Post not found. <a href='index.html'>Back to blog</a></p>"; return; }
+    if (!slug || !/^[a-z0-9-]+$/i.test(slug)) { postEl.innerHTML = "<p>Post not found. <a href='blog.html'>Back to blog</a></p>"; return; }
     loadPosts().then(function (posts) {
       var meta = posts.filter(function (p) { return p.slug === slug; })[0];
       if (!meta) throw new Error("nf");
-      return fetch("posts/" + slug + ".md?v=" + Date.now()).then(function (r) {
+      return fetch("post-" + slug + ".md?v=" + Date.now()).then(function (r) {
         if (!r.ok) throw new Error("nf"); return r.text();
       }).then(function (text) {
         document.title = meta.title + " | Royal Water Tank Cleaning Services";
         var h = document.getElementById("postTitle"); if (h) h.textContent = meta.title;
         var d = document.getElementById("postMeta"); if (d) d.textContent = fmtDate(meta.date) + " · Royal Water Tank Cleaning Services";
         var md_ = document.querySelector('meta[name="description"]'); if (md_) md_.setAttribute("content", meta.excerpt);
-        postEl.innerHTML = '<img class="post-cover" alt="' + esc(meta.title) + '" src="../' + esc(meta.image) + '">' + md(text);
+        postEl.innerHTML = '<img class="post-cover" alt="' + esc(meta.title) + '" src="' + esc(meta.image) + '">' + md(text);
       });
-    }).catch(function () { postEl.innerHTML = "<p>Post not found. <a href='index.html'>Back to blog</a></p>"; });
+    }).catch(function () { postEl.innerHTML = "<p>Post not found. <a href='blog.html'>Back to blog</a></p>"; });
   }
 })();
