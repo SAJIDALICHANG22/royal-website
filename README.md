@@ -9,3 +9,7 @@ Sab files ek hi jagah (root) me hain, koi folder nahi.
    {"slug":"meri-post","title":"Post ka title","date":"2026-11-05","excerpt":"Ek line ka khulasa","image":"underground-tank.jpg"},
    (slug wohi jo file ke naam me `post-` ke baad hai.)
 4. Commit karen.
+
+## Roz blog post kaise karen (asan tareeqa)
+Website ka address + `/admin.html` kholen (jaise .../royal-website/admin.html), form bharen aur **Publish Post** dabayen.
+Sirf pehli baar GitHub token ki settings chahiye.
