@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-Sitemap: https://sajidalichang22.github.io/royal-website/sitemap.xml
+Sitemap: https://royalwatertankcleaning.org/sitemap.xml
